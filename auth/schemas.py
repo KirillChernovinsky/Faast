@@ -3,10 +3,10 @@ from typing import Optional
 
 from fastapi_users import schemas
 from fastapi_users.schemas import PYDANTIC_V2
+from fastapi_users.schemas import ConfigDict
 
 
-
-class UserRead(schemas.BaseUser[uuid.UUID]):
+class UserRead(schemas.BaseUser[int]):
     id: int
     email: str
     username: str
@@ -26,8 +26,7 @@ class UserCreate(schemas.BaseUserCreate):
     username:str
     email: str
     password: str
-    email: str
-    password: str
+    role_id: int
     is_active: Optional[bool] = True
     is_superuser: Optional[bool] = False
     is_verified: Optional[bool] = False
